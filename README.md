@@ -70,13 +70,13 @@ Persistência: Uso de banco de dados relacional leve (SQLite via sqlx) para gara
 
 Controle de Concorrência: Uso de semáforos (tokio::sync::Semaphore) para limitar a quantidade máxima de requisições concorrentes, prevenindo sobrecarga de rede.
 
-Instruções de Compilação e Execução
+- Instruções de Compilação e Execução
 
-Pré-requisitos
+> Pré-requisitos
 
 Rust e Cargo (versão 1.70 ou superior) instalados via rustup.
 
-Passo a Passo
+> Passo a Passo
 
 Clone o repositório:
 
@@ -99,7 +99,7 @@ Executar a suíte de testes automatizados:
 cargo test
 
 
-Funcionalidades Adicionais Implementadas
+- Funcionalidades Adicionais Implementadas
 
 Importação e exportação de arquivos no formato OPML.
 
