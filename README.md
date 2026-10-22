@@ -43,17 +43,25 @@ O projeto adota uma arquitetura em camadas modular com separação clara de resp
 
 - Estrutura do Repositório
 
-.
-1 src/
-2 main.rs          # Ponto de entrada da aplicação
-3 client.rs        # Cliente HTTP com suporte a requisições condicionais
-4 parser.rs        # Módulo de parsing de feeds RSS 2.0 e Atom
-5 db.rs            # Camada de persistência e consultas SQL
-6 models.rs        # Definição de estruturas (Feed, Article, etc.)
-6.1 service.rs       # Lógica de controle de concorrência e deduplicação
-7 tests/               # Testes integrados e unitários
-8 Cargo.toml           # Dependências e configurações da build
-9 README.md            # Documentação do projeto
+1- src/
+2- main.rs          # Ponto de entrada da aplicação
+
+3- client.rs        # Cliente HTTP com suporte a requisições condicionais
+
+4- parser.rs        # Módulo de parsing de feeds RSS 2.0 e Atom
+
+5- db.rs            # Camada de persistência e consultas SQL
+
+6- models.rs        # Definição de estruturas (Feed, Article, etc.)
+
+6.1- service.rs       # Lógica de controle de concorrência e deduplicação
+
+7- tests/               # Testes integrados e unitários
+
+8- Cargo.toml           # Dependências e configurações da build
+
+9- README.md            # Documentação do projeto
+
 
 
 - Decisões Técnicas
