@@ -32,21 +32,17 @@ O projeto adota uma arquitetura em camadas modular com separação clara de resp
 |                 Interface do Usuário                  |
 |                 (CLI / TUI / REST API)                |
 +-------------------------------------------------------+
-                           |
-                           v
+            
 +-------------------------------------------------------+
 |             Aplicação / Regras de Negócio             |
 +-------------------------------------------------------+
-                           |
-            +--------------+--------------+
-            |                             |
-            v                             v
+   
 +-----------------------+     +-------------------------+
 |     HTTP Client       |     |      Persistência       |
 | (Reqwest + Tokio)     |     |    (SQLite / SQLx)      |
 +-----------------------+     +-------------------------+
-            |                             |
-            v                             v
+        
+     
 +-----------------------+     +-------------------------+
 |      Feed Parser      |     |      Deduplicação       |
 | (RSS & Atom Parsing)  |     |   & Cache Conditional   |
