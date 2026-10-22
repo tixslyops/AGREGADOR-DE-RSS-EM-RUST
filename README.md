@@ -28,40 +28,32 @@ Arquitetura do Sistema
 
 O projeto adota uma arquitetura em camadas modular com separação clara de responsabilidades:
 
-+-------------------------------------------------------+
-|                 Interface do Usuário                  |
-|                 (CLI / TUI / REST API)                |
-+-------------------------------------------------------+
+- Interface do Usuário (CLI / TUI / REST API)
             
-+-------------------------------------------------------+
-|             Aplicação / Regras de Negócio             |
-+-------------------------------------------------------+
+-  Aplicação / Regras de Negócio  
    
-+-----------------------+     +-------------------------+
-|     HTTP Client       |     |      Persistência       |
-| (Reqwest + Tokio)     |     |    (SQLite / SQLx)      |
-+-----------------------+     +-------------------------+
-        
-     
-+-----------------------+     +-------------------------+
-|      Feed Parser      |     |      Deduplicação       |
-| (RSS & Atom Parsing)  |     |   & Cache Conditional   |
-+-----------------------+     +-------------------------+
+- HTTP Client (Reqwest + Tokio)
+ 
+- Persistência (SQLite / SQLx)
+
+- Feed Parser (RSS & Atom Parsing)
+
+- Deduplicação e Cache Conditional
 
 
-Estrutura do Repositório
+- Estrutura do Repositório
 
 .
-├── src/
-│   ├── main.rs          # Ponto de entrada da aplicação
-│   ├── client.rs        # Cliente HTTP com suporte a requisições condicionais
-│   ├── parser.rs        # Módulo de parsing de feeds RSS 2.0 e Atom
-│   ├── db.rs            # Camada de persistência e consultas SQL
-│   ├── models.rs        # Definição de estruturas (Feed, Article, etc.)
-│   └── service.rs       # Lógica de controle de concorrência e deduplicação
-├── tests/               # Testes integrados e unitários
-├── Cargo.toml           # Dependências e configurações da build
-└── README.md            # Documentação do projeto
+1 src/
+2 main.rs          # Ponto de entrada da aplicação
+3 client.rs        # Cliente HTTP com suporte a requisições condicionais
+4 parser.rs        # Módulo de parsing de feeds RSS 2.0 e Atom
+5 db.rs            # Camada de persistência e consultas SQL
+6 models.rs        # Definição de estruturas (Feed, Article, etc.)
+6.1 service.rs       # Lógica de controle de concorrência e deduplicação
+7 tests/               # Testes integrados e unitários
+8 Cargo.toml           # Dependências e configurações da build
+9 README.md            # Documentação do projeto
 
 
 - Decisões Técnicas
